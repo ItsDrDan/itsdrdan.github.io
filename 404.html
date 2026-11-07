@@ -1,10 +1,31 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ItsDrDan Chemistry Study Hub</title>
+<title>ItsDrDan Study Games</title>
 <meta name="description" content="Free chemistry study games, video lessons, and study guides by ItsDrDan.">
 <link rel="canonical" href="https://itsdrdan.github.io/games/">
 <link rel="icon" href="/games/assets/logo-32.png">
-<meta http-equiv="refresh" content="0; url=/games/">
-<script>location.replace('/games/' + location.search + location.hash);</script>
+<script>
+/* itsdrdan.github.io: fixes wrong capitalization in addresses (e.g. /mcat -> /MCAT/)
+   and sends the bare address to the chemistry Study Hub. */
+(function () {
+  var REPOS = ["MCAT","games","labpractical","questionbank","retakeprepCHEM3A","textbook","finalexam","enzymes","chem1bready",
+    "quantumchemistry","organic","ionicformula","polyatomic","elements","metric","redox","golinks","algebratrainer","stoichiometry",
+    "lipids","gaslaws","thermochemistry","organicreactions","pHcharge","aminoacids","reactions","lewisstructures","stereochemistry",
+    "moles","functionalgroups","demonstrations","nucleicacids","metabolism","carbohydrates","sigfig"];
+  var ALIAS = {"premed":"MCAT","pulse":"MCAT/practice.html","hub":"games","studyhub":"games"};
+  var parts = location.pathname.replace(/^\/+/, "").split("/");
+  var first = (parts.shift() || "").toLowerCase();
+  var target = "games/";
+  if (first) {
+    var hit = null;
+    for (var i = 0; i < REPOS.length; i++) if (REPOS[i].toLowerCase() === first) { hit = REPOS[i]; break; }
+    if (hit) target = hit + "/" + parts.join("/");
+    else if (ALIAS.hasOwnProperty(first)) target = ALIAS[first] + (ALIAS[first].indexOf(".html") < 0 ? "/" + parts.join("/") : "");
+  }
+  var url = "/" + target.replace(/\/+/g, "/");
+  if (url === location.pathname) url = "/games/";
+  location.replace(url + location.search + location.hash);
+})();
+</script>
 <style>body{font-family:Nunito,system-ui,sans-serif;background:#fbf8ff;color:#1f2a44;display:grid;place-items:center;min-height:100vh;margin:0;text-align:center}a{color:#6b4fc9;font-weight:800}</style>
-</head><body><p>Opening Dr. Dan’s Chemistry Study Hub…<br><a href="/games/">Tap here if nothing happens</a></p></body></html>
+</head><body><p>Opening Dr. Dan’s study games…<br><a href="/games/">Chemistry Study Hub</a> · <a href="/MCAT/">MCAT Study Hub</a></p></body></html>
