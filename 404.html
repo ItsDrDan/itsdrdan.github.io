@@ -11,8 +11,8 @@
   var REPOS = ["MCAT","games","labpractical","questionbank","retakeprepCHEM3A","textbook","finalexam","enzymes","chem1bready",
     "quantumchemistry","organic","ionicformula","polyatomic","elements","metric","redox","golinks","algebratrainer","stoichiometry",
     "lipids","gaslaws","thermochemistry","organicreactions","pHcharge","aminoacids","reactions","lewisstructures","stereochemistry",
-    "moles","functionalgroups","demonstrations","nucleicacids","metabolism","carbohydrates","sigfig"];
-  var ALIAS = {"premed":"MCAT","pulse":"MCAT/practice.html","hub":"games","studyhub":"games"};
+    "moles","functionalgroups","demonstrations","nucleicacids","metabolism","carbohydrates","sigfig","teas"];
+  var ALIAS = {"premed":"MCAT","pulse":"MCAT/practice.html","hub":"games","studyhub":"games","nursing":"teas","scrubin":"teas/practice.html"};
   var parts = location.pathname.replace(/^\/+/, "").split("/");
   var first = (parts.shift() || "").toLowerCase();
   var target = "games/";
@@ -28,4 +28,4 @@
 })();
 </script>
 <style>body{font-family:Nunito,system-ui,sans-serif;background:#fbf8ff;color:#1f2a44;display:grid;place-items:center;min-height:100vh;margin:0;text-align:center}a{color:#6b4fc9;font-weight:800}</style>
-</head><body><p>Opening Dr. Dan’s study games…<br><a href="/games/">Chemistry Study Hub</a> · <a href="/MCAT/">MCAT Study Hub</a></p></body></html>
+</head><body><p>Opening Dr. Dan’s study games…<br><a href="/games/">Chemistry Study Hub</a> · <a href="/MCAT/">MCAT Study Hub</a> · <a href="/teas/">TEAS Study Hub</a></p></body></html>
